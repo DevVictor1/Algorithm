@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conditional statement1</h1>
+    <input type="text" placeholder="address" id="address">
+    <button onclick="processAddress()">process</button>
+    <div id="newAddress">your new address shows here</div>
+    <br>
+
+    <h1>Conditional Statement2</h1>
+    <input type="text" placeholder="Book Title" id="bookTitle">
+    <button onclick="checkDuplicate()">check duplicate</button>
+    <div id="checkResult">result shows here</div>
+    <br>
+
+    <h1>Conditional statement3</h1>
+    <input type="text" placeholder="enter essay text" id="essay">
+    <button onclick="cleanEssay()">remove</button>
+    <div id="cleanResult">result shows here</div>
+    <br>
+
+    <h1>Conditional statement4</h1>
+    <input type="text" placeholder="enter password" id="password">
+    <button onclick="checkPassword()">Enter</button>
+    <div id="correctPassword"></div>
+</body>
+
+<script>
+    function processAddress(){
+    if(address.value=='') {
+        alert("input cannot be empty")
+    } else {
+        var letter = (address.value).toLowerCase()
+        newAddress.innerHTML = letter
+    }
+}
+//CONDITIONAL STATEMENT2
+var titles = ["The Great Developer", "Learn JavaScript", "Future Of Coding" ]
+    
+    function checkDuplicate(){
+    if(bookTitle.value=='') {
+        alert("input cannot be empty")
+    } else {
+        var inputTitle = (bookTitle.value).toLowerCase()
+        var isDuplicate = false
+
+        for (var i = 0; i < titles.length; i++) {
+            if (titles[i].toLowerCase() == inputTitle)
+            isDuplicate = true
+        break
+        }
+    }
+    if (isDuplicate) {
+        checkResult.innerHTML = "Duplicate Title Found"
+    } else {
+        checkResult.innerHTML = "Title Is Unique"
+    }
+    }
+    //STATEMENT 3
+    function cleanEssay(){
+        if(essay.value=='') {
+            alert("input cannot be empty")
+        } else {
+            var cleanText = essay.value.trim().replace(/\s+/g, ' ')
+            cleanResult.innerHTML = cleanText
+        }
+    }
+    //STATEMENT 4
+    function checkPassword(){
+        if(password.value=='') {
+            alert("input cannot be empty")
+        } else if (password.value.length < 8) {
+            correctPassword.innerHTML = "Password must be at least 8 characters long"
+        } else if (!/[A-Z]/.test(password.value)) {
+            correctPassword.innerHTML = "Password must contain at least one uppercase letter"
+        }  else if (!/[a-z]/.test(password.value)) {
+            correctPassword.innerHTML = "Password must contain at least one lowercase letter"
+        } else if (!/[0-9]/.test(password.value)) {
+            correctPassword.innerHTML = "Password must contain at least one number"
+        } else {
+            correctPassword.innerHTML = "Password is strong"
+        }
+            
+        }
+    
+</script>
+</html>
