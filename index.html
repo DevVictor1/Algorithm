@@ -28,6 +28,12 @@
     <input type="text" placeholder="enter password" id="password">
     <button onclick="checkPassword()">Enter</button>
     <div id="correctPassword"></div>
+    <br>
+
+    <h1>Conditional statement5</h1>
+    <input type="text" placeholder="Items Number" id="items">
+    <button onclick="checkEven()">check discount</button>
+    <div id="discountResult">RESULT</div>
 </body>
 
 <script>
@@ -86,6 +92,19 @@ var titles = ["The Great Developer", "Learn JavaScript", "Future Of Coding" ]
             correctPassword.innerHTML = "Password is strong"
         }
             
+        }
+        //STATEMENT 5
+        function checkEven(){
+            if(items.value=='') {
+                alert("input cannot be empty")
+            } else {
+                var count = Number(items.value)
+                if(count %2==0) {
+                    discountResult.innerHTML = "You Get A Discount"
+                } else {
+                    discountResult.innerHTML = "No Discount"
+                }
+            }
         }
     
 </script>
